@@ -1,0 +1,25 @@
+@use "../../styles/mixins" as mxn;
+
+.contact {
+  text-align: center;
+
+  .informations__article__title {
+    background-color: var(--secondary);
+    color: var(--dark-brown);
+  }
+
+  .informations__article__details {
+    @include mxn.flex("column", "nowrap");
+    gap: .5rem;
+
+    a {
+      font-size: var(--font-size-s);
+      color: var(--primary-50);
+      transition: color .3s ease;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+}

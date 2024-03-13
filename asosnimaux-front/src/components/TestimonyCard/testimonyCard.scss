@@ -1,0 +1,81 @@
+@use "../../styles/mixins" as mxn;
+
+.testimony {
+  @include mxn.container($padding: var(--padding-s) var(--padding-m) var(--padding-m));
+  @include mxn.flex("column", "nowrap");
+  justify-content: space-between;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow-2-2-5);
+  border-radius: var(--radius-m);
+
+  &__text {
+    padding: var(--padding-s);
+    position: relative;
+    text-align: justify;
+
+    &::before,
+    &::after {
+      position: absolute;
+      font-size: 4rem;
+    }
+
+    &::before {
+      content: '\275D';
+      top: -.5rem;
+      left: -.5rem;
+    }
+
+    &::after {
+      content: '\275E';
+      position: absolute;
+      bottom: -2rem;
+      right: -.5rem;
+    }
+  }
+
+  &__cite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: 0 var(--padding-s);
+    font-size: var(--font-size-s);
+
+    p {
+      @include mxn.flex("column", "nowrap");
+
+      span {
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: var(--fw-semi-bold);
+      }
+    }
+  }
+
+  &__img {
+    background-color: var(--dark-brown);
+    border-radius: 50%;
+    max-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-wrapper {
+    text-align: right;
+    padding-right: var(--padding-s);
+
+    .btn {
+      padding: 0;
+      text-decoration: underline;
+      background: transparent;
+      font-family: "Noto Sans", sans-serif;
+      transition: color .3s ease;
+      font-size: var(--font-size-s);
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+}

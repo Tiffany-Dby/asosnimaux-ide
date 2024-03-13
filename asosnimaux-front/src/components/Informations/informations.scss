@@ -1,0 +1,116 @@
+@use "../../styles/mixins" as mxn;
+
+.informations {
+  @include mxn.flex("column", "nowrap");
+  gap: 1rem;
+
+  &__wrapper {
+    @include mxn.container;
+    display: grid;
+    gap: 2rem;
+
+    @media screen and (min-width: 400px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 767px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-areas:
+        "map map map"
+        "map map map"
+        "add con sch"
+        "soc soc sch";
+      gap: 2rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+      grid-template-areas:
+        "map map map sch"
+        "map map map sch"
+        "add con img img"
+        "soc soc img img";
+    }
+  }
+
+  .map {
+    @media screen and (min-width: 400px) {
+      grid-column: 1/-1;
+    }
+
+    @media screen and (min-width: 767px) {
+      grid-area: map;
+    }
+  }
+
+  .address {
+    @media screen and (min-width: 767px) {
+      grid-area: add;
+    }
+  }
+
+  .schedules {
+    @media screen and (min-width: 400px) {
+      grid-column: 1/-1;
+    }
+
+    @media screen and (min-width: 550px) {
+      grid-column: 2/-1;
+      grid-row: 2/4;
+    }
+
+    @media screen and (min-width: 767px) {
+      grid-area: sch;
+    }
+  }
+
+  .contact {
+    @media screen and (min-width: 550px) {
+      grid-column: 1/2;
+    }
+
+    @media screen and (min-width: 767px) {
+      grid-area: con;
+    }
+  }
+
+  .socialmedia {
+    @media screen and (min-width: 400px) {
+      grid-column: 1/-1;
+    }
+
+    @media screen and (min-width: 767px) {
+      grid-area: soc;
+    }
+  }
+
+  &__img {
+    @media screen and (min-width: 767px) {
+      grid-area: img;
+      box-shadow: var(--box-shadow-2-2-5);
+    }
+  }
+
+  &__article {
+    display: grid;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow-2-2-5);
+    border-radius: var(--radius-xs);
+
+    &__title {
+      height: fit-content;
+      text-transform: uppercase;
+      text-align: center;
+      background-color: var(--dark-brown);
+      width: 100%;
+      color: var(--white);
+      border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+      padding: var(--padding-xs);
+    }
+
+    &__details {
+      justify-self: center;
+      padding: var(--padding-s);
+    }
+  }
+}

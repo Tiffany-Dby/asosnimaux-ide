@@ -1,0 +1,55 @@
+@use "../../styles/mixins" as mxn;
+
+.burger {
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  cursor: pointer;
+
+  span,
+  span::before,
+  span::after {
+    position: relative;
+    display: block;
+    width: 35px;
+    height: 3px;
+    border-radius: var(--radius-l);
+    background-color: var(--primary);
+    transition: all .6s ease;
+
+    @media screen and (min-width: 767px) {
+      background-color: transparent;
+    }
+  }
+
+  span::before,
+  span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  span::before {
+    transform: translateY(-1rem);
+  }
+
+  span::after {
+    transform: translateY(1rem);
+  }
+
+  &.open {
+    span {
+      background: transparent;
+      width: 0;
+    }
+
+    span::before {
+      transform: rotate(45deg);
+    }
+
+    span::after {
+      transform: rotate(-45deg);
+    }
+  }
+}

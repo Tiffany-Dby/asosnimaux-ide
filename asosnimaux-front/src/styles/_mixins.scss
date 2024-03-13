@@ -1,0 +1,185 @@
+@mixin flex($direction: "row", $wrap: "wrap") {
+  display: flex;
+  flex-wrap: #{$wrap};
+  flex-direction: #{$direction};
+}
+
+@mixin grow($size: 1) {
+  flex-shrink: 0;
+  flex-basis: 0%;
+  flex-grow: #{$size};
+}
+
+@mixin container($width: "1300px", $padding: var(--padding-s)) {
+  width: 100%;
+  margin: 0 auto;
+  max-width: #{$width};
+  padding: #{$padding};
+}
+
+@mixin input-reseter {
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border: none;
+  }
+
+  &:-webkit-outer-spin-button,
+  &:-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+
+  /* Firefox */
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  /* Safari */
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    // -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  border: none;
+  outline: none;
+  font-style: normal;
+  background: transparent;
+
+  &:not(select) {
+    appearance: none;
+  }
+}
+
+@mixin title {
+  @include container;
+  display: grid;
+  justify-content: center;
+
+  &::after {
+    content: url(../../assets/imgs/Paw.svg);
+    grid-area: 1/1;
+    justify-self: end;
+    align-self: center;
+    transform: translateY(-20%);
+    width: var(--font-size-n);
+  }
+
+  h1,
+  h2,
+  h3 {
+    grid-area: 1/1;
+    z-index: 1;
+    padding: 0 1rem;
+  }
+}
+
+@mixin btnSimple {
+  .btn {
+    padding: var(--padding-xxs) var(--padding-xs);
+    background-color: var(--primary);
+    box-shadow: var(--shadow-border-m) var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-xs);
+    transition: all .5s ease;
+
+    &:hover {
+      opacity: .9;
+    }
+  }
+}
+
+@mixin btnStylish {
+  display: grid;
+  justify-content: center;
+
+  .btn {
+    grid-area: 1/1;
+    z-index: 1;
+    padding: var(--padding-xs) var(--padding-m);
+    border: none;
+    border-radius: var(--radius-xxs);
+    background-color: transparent;
+    box-shadow: var(--shadow-border-m) var(--primary-50);
+    font-size: var(--font-size-s);
+    text-decoration: none;
+    color: var(--secondary-50);
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: var(--radius-xxs);
+    box-shadow: var(--shadow-border-s) var(--dark-brown);
+    background-color: var(--dark-brown);
+    transform: translate(-.65rem, .65rem);
+    transition: all .5s;
+  }
+
+  &:hover::after {
+    transform: translate(0, 0);
+  }
+}
+
+@mixin loadingPaws {
+  display: grid;
+  grid-area: 1/1;
+  width: calc(6*30px);
+  height: 50px;
+  color: var(--accent);
+  filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);
+  clip-path: inset(0 100% 0 0);
+  animation: laodingPaws 2s infinite steps(7);
+
+  &::before {
+    grid-area: 1/1;
+    content: "";
+    width: 30px;
+    height: 25px;
+    --paws: no-repeat radial-gradient(farthest-side, currentColor 92%, #03030300);
+    background:
+      var(--paws) left /55% 55%,
+      var(--paws) top 2% right 40%/27% 22%,
+      var(--paws) top 23% right 5%/28% 24%,
+      var(--paws) top 58% right 5%/26% 24%,
+      var(--paws) bottom 12% right 30%/25% 20%;
+  }
+
+  @keyframes laodingPaws {
+    100% {
+      clip-path: inset(0 -30px 0 0)
+    }
+  }
+}
+
+@mixin loadingSpin {
+  width: 35px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side, var(--accent) 94%, #0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%, var(--accent));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: loadingSpin 1s infinite linear;
+
+  @keyframes loadingSpin {
+    100% {
+      transform: rotate(1turn)
+    }
+  }
+}

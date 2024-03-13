@@ -1,0 +1,22 @@
+@use "../../styles/mixins" as mxn;
+
+.articles {
+  &__wrapper {
+    @include mxn.container;
+  }
+
+  &-overview {
+    @include mxn.flex("column", "nowrap");
+    gap: 2rem;
+
+    .articles__wrapper {
+      padding: var(--padding-s);
+    }
+
+    .btn-wrapper {
+      @include mxn.btnStylish;
+      margin: 0 auto;
+      padding-bottom: var(--padding-xs);
+    }
+  }
+}

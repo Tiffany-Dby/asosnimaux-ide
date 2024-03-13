@@ -1,0 +1,61 @@
+@use "../../styles/mixins" as mxn;
+
+.admin {
+  &__all-animals {
+    &__wrapper {
+
+      @media screen and (min-width:595px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media screen and (min-width:1024px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  &__animal {
+    &__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+      padding: var(--padding-xs);
+      background-color: var(--dark-brown);
+      border-radius: var(--radius-s) var(--radius-s) 0 0;
+      color: var(--white);
+
+      span {
+        display: flex;
+      }
+    }
+
+    &__details {
+      display: flex;
+      justify-content: left;
+      border-bottom: 1px solid var(--light-grey);
+
+      &__exit {
+        @include mxn.flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      &>* {
+        width: 50%;
+        min-width: 100px;
+        padding: 0 1rem;
+
+        &:nth-child(2) {
+          border-left: 1px solid var(--light-grey);
+        }
+
+        p {
+          display: flex;
+          flex-direction: column
+        }
+      }
+    }
+  }
+}

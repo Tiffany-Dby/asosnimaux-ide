@@ -1,0 +1,9 @@
+main:has(.banner) {
+  section {
+    padding: var(--padding-m) 0 var(--padding-l);
+
+    &:nth-child(even) {
+      background-color: var(--secondary-50);
+    }
+  }
+}

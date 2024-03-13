@@ -1,0 +1,149 @@
+@use "../../styles/mixins" as mxn;
+
+.admin {
+  padding-top: var(--padding-l);
+  padding-bottom: var(--padding-xl);
+
+  &__wrapper {
+    @include mxn.container($padding: 0 var(--padding-s) 0);
+  }
+
+  &__header {
+    display: grid;
+    gap: 1rem;
+
+    @media screen and (min-width:595px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__nav {
+    @include mxn.container($padding: var(--padding-s) var(--padding-s) 0);
+
+    &__links {
+      @include mxn.flex;
+    }
+
+    &__link {
+      padding: var(--padding-xxs) var(--padding-xxs);
+      background-color: var(--secondary);
+      box-shadow: 0px 0px 4px 0 rgba(59, 48, 48, 0.25);
+      border: 1px solid transparent;
+      text-align: center;
+      width: 50%;
+      transition: all .3s ease;
+
+      @media screen and (min-width: 345px) {
+        border-radius: var(--radius-s) var(--radius-s) 0 0;
+        width: auto;
+      }
+
+      @media screen and (min-width: 480px) {
+        padding: var(--padding-xxs) var(--padding-s);
+      }
+
+      &:hover:not(.admin__nav__link:has(.active)) {
+        background-color: var(--secondary125);
+      }
+
+      &:has(.active) {
+        font-weight: var(--fw-bold);
+        background-color: var(--white);
+        border-top-color: var(--secondary125);
+        border-left-color: var(--secondary125);
+        border-right-color: var(--secondary125);
+        position: relative;
+        z-index: 1;
+        order: 1;
+
+        @media screen and (min-width: 345px) {
+          order: 0;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          height: 10px;
+          width: 100%;
+          bottom: -5px;
+          left: 0;
+          background-color: var(--white);
+        }
+
+        a {
+          color: var(--dark-brown);
+          cursor: default;
+        }
+      }
+
+      a {
+        font-size: var(--font-size-s);
+        letter-spacing: .5px;
+        text-decoration: none;
+        display: block;
+        color: var(--dark-brown);
+        transition: all .3s ease;
+
+        &:not(.active) {
+          font-weight: var(--fw-regular);
+        }
+      }
+    }
+  }
+
+  &__all-articles,
+  &__all-users,
+  &__all-animals,
+  &__all-testimonies {
+    @include mxn.container;
+    @include mxn.flex("column", "nowrap");
+    gap: 1.6rem;
+    border-radius: 0 0 var(--radius-s) var(--radius-s);
+    box-shadow: 0px 1px 4px 0 rgba(59, 48, 48, 0.25);
+    background-color: var(--white);
+    border: 1px solid var(--secondary125);
+
+    @media screen and (min-width: 345px) {
+      border-top-right-radius: var(--radius-s);
+    }
+  }
+
+  &__all-articles,
+  &__all-users,
+  &__all-animals {
+    &__wrapper {
+      display: grid;
+      gap: 3rem;
+    }
+  }
+
+  &__article,
+  &__user,
+  &__animal {
+    display: grid;
+    width: 100%;
+    background-color: var(--white);
+    border-radius: var(--radius-s);
+    box-shadow: inset 0px 0px 1.5px rgba(0, 0, 0, 0.75);
+  }
+
+  .btn-wrapper {
+    @include mxn.btnSimple;
+    justify-self: center;
+    margin-right: var(--padding-xxs);
+
+    .btn {
+      font-size: var(--font-size-n);
+    }
+  }
+
+  .icons-wrapper {
+    @include mxn.flex;
+    justify-content: center;
+    align-self: end;
+    gap: 5rem;
+    padding: var(--padding-s);
+  }
+}

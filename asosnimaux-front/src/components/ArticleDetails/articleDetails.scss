@@ -1,0 +1,55 @@
+@use "../../styles/mixins" as mxn;
+
+.article-page {
+  padding: var(--padding-l) 0;
+
+  article {
+    background-color: var(--white);
+    border-radius: var(--radius-s);
+    box-shadow: var(--box-shadow-2-2-5);
+  }
+
+  &__wrapper {
+    @include mxn.container;
+    border-radius: var(--radius-s);
+  }
+
+  &__img {
+    img {
+      display: block;
+      max-height: 600px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: 2.5rem;
+    padding: 0 var(--padding-l) var(--padding-l);
+
+    @media screen and (min-width: 500px) {}
+  }
+
+  &__title {
+    &__wrapper {
+      border-radius: var(--radius-s) var(--radius-s) 0 0;
+      padding: var(--padding-s);
+      background-color: var(--dark-brown);
+      color: var(--white);
+      text-align: center;
+    }
+  }
+
+  &__date {
+    border-radius: 0 0 var(--radius-s) var(--radius-s);
+    background-color: var(--dark-brown);
+    color: var(--white);
+    justify-self: center;
+    padding: var(--padding-s);
+    text-align: center;
+  }
+
+  &__text {
+    @include mxn.flex("column", "nowrap");
+    gap: .5rem;
+  }
+}

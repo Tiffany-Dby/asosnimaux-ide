@@ -1,0 +1,43 @@
+@use "../../styles/mixins" as mxn;
+
+.input {
+  @include mxn.input-reseter;
+  box-shadow: var(--shadow-border-xxs) var(--secondary125);
+  border-radius: var(--radius-s);
+  padding: var(--padding-xxs);
+  transition: all .3s ease;
+  background-color: var(--secondary-25);
+
+  &:where(select) {
+    padding: var(--padding-xs);
+  }
+
+  &:focus-within {
+    box-shadow: var(--shadow-border-xxs) var(--accent);
+  }
+
+  &__wrapper {
+    @include mxn.flex("column", "nowrap");
+    width: 100%;
+    position: relative;
+    transition: all .3s ease;
+
+    &:focus-within label {
+      color: var(--accent);
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: -2rem;
+    left: 2%;
+    font-size: var(--font-label);
+    transition: all .3s ease;
+    font-weight: var(--fw-semi-bold);
+  }
+
+  &--error {
+    box-shadow: var(--shadow-border-xxs) var(--light-red);
+    color: var(--light-red);
+  }
+}

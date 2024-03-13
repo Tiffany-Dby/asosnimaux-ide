@@ -1,0 +1,30 @@
+@use "../../styles/mixins" as mxn;
+
+.breadcrumbs {
+  @include mxn.container;
+
+  &__links {
+    @include mxn.flex;
+    gap: .5rem;
+  }
+
+  &__link {
+    @include mxn.flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+
+    a {
+      color: var(--primary-50);
+      transition: color .4s ease;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__icon {
+    color: var(--primary-50);
+  }
+}

@@ -1,0 +1,71 @@
+@use "../../styles/mixins" as mxn;
+
+.article {
+  border-radius: var(--radius-xs);
+  box-shadow: var(--box-shadow-2-2-5);
+  background-color: var(--white);
+  overflow: hidden;
+  width: 100%;
+
+  cursor: pointer;
+  transition: all .5s ease;
+
+  &:hover img {
+    transform: scale(1.15);
+  }
+
+  @media screen and (min-width: 500px) {
+    display: flex;
+  }
+
+  &__img {
+    overflow: hidden;
+
+    @media screen and (min-width: 500px) {
+      width: 40%;
+    }
+
+    img {
+      height: 250px;
+      display: block;
+      transition: all .5s ease;
+
+      @media screen and (min-width: 500px) {
+        height: 350px;
+      }
+    }
+  }
+
+
+  &__content {
+    display: grid;
+    gap: 1rem;
+    padding: 0 var(--padding-s) var(--padding-m);
+
+    @media screen and (min-width: 500px) {
+      width: 60%;
+    }
+  }
+
+  &:has(.article__date) div:nth-child(1) {
+    justify-self: center;
+  }
+
+  &__title {
+    font-size: var(--font-size-m);
+  }
+
+  &__date {
+    grid-row: 1/1;
+    justify-self: center;
+
+    p {
+      font-size: var(--font-size-s);
+      padding: var(--padding-s);
+      background-color: var(--dark-brown);
+      border-radius: 0 0 var(--radius-s) var(--radius-s);
+      color: var(--white);
+    }
+  }
+
+}

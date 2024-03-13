@@ -1,0 +1,20 @@
+@use "../../styles/mixins" as mxn;
+
+.socialmedia-list {
+  @include mxn.flex;
+  gap: .5rem;
+  transition: all .5s ease;
+
+  &:has(li:hover) li:not(:hover) {
+    opacity: .80;
+    transform: scale(.80)
+  }
+
+  a {
+    color: var(--dark-brown);
+  }
+
+  &>li {
+    transition: all .3s ease;
+  }
+}

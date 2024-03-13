@@ -1,0 +1,85 @@
+@use "../../styles/mixins" as mxn;
+
+.filters {
+  &__switches {
+    @include mxn.flex;
+    gap: 1rem;
+
+    @media screen and (min-width: 480px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__wrapper {
+    @include mxn.container("600px", 0 0 var(--padding-xs));
+    @include mxn.flex("column", "nowrap");
+    gap: 1rem;
+
+    .btn-wrapper {
+      margin: 0 auto;
+
+      .filters__reset {
+        background-color: var(--dark-red);
+        box-shadow: var(--shadow-border-m) var(--dark-red);
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .title-wrapper {
+      justify-content: start;
+      padding: var(--padding-xs) 0;
+
+      h2 {
+        padding-left: 0;
+        font-size: var(--font-size-xl);
+      }
+    }
+
+    .manage-icons {
+      height: 2.5rem;
+      width: 2.5rem;
+      color: var(--dark-red);
+    }
+  }
+
+  &__search {
+    @include mxn.flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+
+    @media screen and (min-width: 480px) {
+      flex-wrap: nowrap;
+    }
+
+    .btn-wrapper {
+      margin: 0;
+      padding-right: var(--padding-xxs);
+
+      .btn {
+        padding: .1rem .2rem;
+      }
+    }
+  }
+
+  &__inputs {
+    @include mxn.flex;
+    justify-content: space-between;
+    gap: .5rem;
+  }
+
+  fieldset {
+    width: 100%;
+    padding: var(--padding-xs) var(--padding-s) var(--padding-s);
+    border-color: var(--secondary125);
+    border-radius: var(--radius-m);
+    margin-bottom: 1rem;
+  }
+}

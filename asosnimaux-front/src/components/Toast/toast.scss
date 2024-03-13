@@ -1,0 +1,45 @@
+@use "../../styles/mixins" as mxn;
+
+.toast {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  transform: translateX(-50%);
+  padding: var(--padding-xs);
+  border-radius: var(--radius-m);
+  background-color: var(--white);
+  box-shadow: 0px 0px 9px 1px #0000003a;
+
+  &__content {
+    @include mxn.flex("row", "nowrap");
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__message {
+    color: var(--dark-brown);
+  }
+
+  &__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: var(--success);
+  }
+
+  &.toast-open {
+    top: 90px;
+    animation: openToast .5s ease;
+  }
+}
+
+@keyframes openToast {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 90px;
+  }
+}

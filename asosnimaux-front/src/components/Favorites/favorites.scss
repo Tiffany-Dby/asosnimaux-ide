@@ -1,0 +1,59 @@
+@use "../../styles/mixins" as mxn;
+
+.favorites {
+  @include mxn.flex("column", "nowrap");
+  gap: 3rem;
+
+  &__page {
+    padding-top: var(--padding-l);
+    padding-bottom: var(--padding-xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  &__header {
+    @include mxn.container;
+  }
+
+  .notAuth {
+    margin: 0 auto 2rem;
+    max-width: 600px;
+    background-color: var(--white);
+    padding: var(--padding-s);
+    border-radius: var(--radius-m);
+    box-shadow: var(--box-shadow-2-2-5);
+    font-size: var(--font-size-s);
+
+    .icon {
+      width: 2.5rem;
+      margin: 0 1.5rem 0 0;
+      float: left;
+    }
+
+    a {
+      font-weight: var(--fw-bold);
+      color: var(--dark-red);
+      transition: color .3s ease;
+
+      &:hover {
+        color: var(--light-red);
+      }
+    }
+  }
+
+  .loading {
+    margin-top: 3rem;
+  }
+
+  &__wrapper {
+    @include mxn.container;
+    display: grid;
+    gap: 3rem;
+
+    @media screen and (min-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

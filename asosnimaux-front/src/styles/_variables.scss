@@ -1,0 +1,78 @@
+// FONTS
+@font-face {
+  font-family: "Montserrat";
+  src: url(../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf) format('truetype-variations');
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: url(../assets/fonts/Noto_Sans/NotoSans-VariableFont_wdth-wght.ttf) format('truetype-variations');
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+:root {
+  // COLORS
+  --primary: #6C4E4E;
+  --primary-50: #936C6C;
+  --primary-25: #D9CDCD;
+  --secondary: #FFE6D1;
+  --secondary-opacity-50: rgba(255, 230, 209, 0.25);
+  --secondary125: #FDD0AB;
+  --secondary-50: #FFF6EE;
+  --secondary-25: #FFFBF8;
+  --accent: #FDAB81;
+  --white: #FEFEFE;
+  --light-grey: #D9D9D9;
+  --dark-grey: #b8b8b8;
+  --light-red: #E94E4E;
+  --dark-red: #A30909;
+  --dark-brown: #3B3030;
+  --success: #12af27;
+
+  // PADDING
+  --padding-xxs: .4rem;
+  --padding-xs: .8rem;
+  --padding-s: 1.6rem;
+  --padding-m: 2.4rem;
+  --padding-l: 3.2rem;
+  --padding-xl: 4.8rem;
+  --padding-xxl: 6.4rem;
+
+  // RADIUS
+  --radius-xxs: .1rem;
+  --radius-xs: .2rem;
+  --radius-s: .4rem;
+  --radius-m: .55rem;
+  --radius-l: .7rem;
+
+  // SHADOW
+  --shadow-border-xxs: 0px 0px 0px 1px;
+  --shadow-border-s: 0px 0px 0px 2px;
+  --shadow-border-m: 0px 0px 0px 4px;
+  --box-shadow-2-2-5: 2px 2px 5px 0px rgba(59, 48, 48, 0.25);
+  --box-shadow-0-0-10: 0px 0px 10px 0px rgba(59, 48, 48, 0.25);
+
+  // FONTS
+  --font-label: 1.3rem;
+  --font-size-xs: calc(.95rem + .6vmin);
+  --font-size-s: calc(1rem + .6vmin);
+  --font-size-n: calc(1.2rem + .6vmin);
+  --font-size-m: calc(1.6rem + .6vmin);
+  --font-size-l: calc(1.8rem + .6vmin);
+  --font-size-xl: calc(2rem + .6vmin);
+  --font-size-xxl: calc(2.5rem + .6vmin);
+
+  // FONT WEIGHT
+  --fw-thin: 100;
+  --fw-extra-light: 200;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+  --fw-black: 900;
+}

@@ -1,0 +1,40 @@
+@use "../../styles/mixins" as mxn;
+
+.admin {
+  &__all-testimonies {
+    &__wrapper {
+      @media screen and (min-width:767px) {
+        columns: 2;
+        column-gap: 3rem;
+      }
+    }
+  }
+
+  &__testimony {
+    margin-bottom: 3rem;
+    break-inside: avoid-column;
+    background-color: var(--white);
+    border-radius: var(--radius-s);
+    box-shadow: inset 0px 0px 1.5px rgba(0, 0, 0, 0.75);
+
+    &__content {
+      display: grid;
+    }
+
+    &__text {
+      padding: var(--padding-xs);
+    }
+
+    &__cite {
+      grid-area: 1/1;
+
+      p {
+        font-style: normal;
+        padding: var(--padding-xs);
+        background-color: var(--dark-brown);
+        color: var(--white);
+        border-radius: var(--radius-s) var(--radius-s) 0 0;
+      }
+    }
+  }
+}

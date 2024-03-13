@@ -1,0 +1,185 @@
+@use "../../styles/mixins" as mxn;
+
+dialog {
+  position: fixed;
+  width: 95%;
+  border-radius: var(--radius-l);
+  border: 0;
+  box-shadow: var(--shadow-border-s) var(--secondary125);
+
+  &:has(.dialog-wrapper)[open] {
+    animation: openDialog .5s ease;
+  }
+
+  &:has(.filters__wrapper)[open] {
+    animation: openFilters .5s ease;
+  }
+
+  form,
+  .dialog-wrapper {
+    @include mxn.flex("column", "nowrap");
+    gap: 2.5rem;
+    padding-bottom: var(--padding-xs);
+    text-align: center;
+
+    &:has(.avatar:hover) .avatar:not(:hover) {
+      filter: grayscale(100%);
+    }
+
+    &:has(.selected) .avatar:not(.selected) {
+      filter: grayscale(100%);
+      transform: scale(.80);
+
+      &:hover {
+        filter: grayscale(0);
+      }
+    }
+
+    .selected {
+      background-color: var(--primary);
+
+      &:hover {
+        filter: grayscale(0%);
+      }
+    }
+  }
+
+  &::backdrop {
+    background-color: hsla(0, 0%, 0%, 0.55);
+    backdrop-filter: blur(.075rem);
+  }
+
+  .btns-wrapper {
+    @include mxn.flex;
+    gap: 3rem;
+    justify-content: center;
+  }
+
+  .btn-wrapper {
+    @include mxn.btnSimple;
+
+    &:nth-child(2):not(.filters__wrapper .btn-wrapper) .btn {
+      background-color: var(--dark-red);
+      box-shadow: var(--shadow-border-m) var(--dark-red);
+    }
+  }
+
+  .avatars {
+    padding: 0;
+  }
+
+  .avatar {
+    max-width: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .5s ease;
+
+    &__wrapper {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      padding-bottom: 3rem;
+
+      @media screen and (min-width: 630px) {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+  }
+
+  &:has(.filters__wrapper) {
+    margin: 0;
+    top: 100%;
+    transform: translateY(-100%);
+    border-radius: 0;
+    min-width: 100%;
+    background-color: var(--secondary-50);
+  }
+
+  &:has(.avatar__wrapper) {
+    max-width: 400px;
+
+    @media screen and (min-width: 630px) {
+      max-width: 750px;
+    }
+  }
+
+  &:has(.not-auth),
+  &:has(.dialog--read-one-testimony) {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    max-width: fit-content;
+
+    .dialog-wrapper {
+      padding: 0;
+    }
+  }
+
+  &:has(.not-auth) {
+    max-width: 680px;
+  }
+
+  &:has(.dialog--read-one-testimony) {
+    .testimony {
+      display: grid;
+      max-width: 900px;
+      grid-template-columns: 1fr;
+
+    }
+
+    .btn-wrapper {
+      grid-row: 1/1;
+      padding-right: 0;
+      justify-self: end;
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: var(--font-size-xs);
+
+        &:hover {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  &:has(.user__update),
+  &:has(.confirm-deletion) {
+    max-width: 425px;
+  }
+
+  &:has(.admin__new-article),
+  &:has(.admin__update-article),
+  &:has(.admin__new-animal),
+  &:has(.admin__update-animal),
+  &:has(.testimonies__new-testimony) {
+    max-width: 700px;
+  }
+
+  .text-error {
+    padding: 0;
+  }
+}
+
+@keyframes openDialog {
+  from {
+    top: -25%;
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes openFilters {
+  from {
+    top: 100%;
+    transform: translateY(0);
+  }
+}

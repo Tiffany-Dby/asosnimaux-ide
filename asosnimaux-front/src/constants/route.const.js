@@ -1,0 +1,20 @@
+export const APP_ROUTES = {
+  API_URL: "http://tiffanydbeissy.sites.3wa.io:9000/",
+  HOME: "/",
+  SIGN_UP: "/sign-up",
+  SIGN_IN: "/sign-in",
+  ACCOUNT: "/account",
+  ADOPTION: "/adoption",
+  ANIMAL: "/adoption/:id",
+  ARTICLES: "/articles",
+  ARTICLE: "/articles/:id",
+  ASSOCIATION: "/association",
+  TESTIMONIES: "/testimonies",
+  DONATION: "/donation",
+  FAVORITES: "/favorites",
+  ADMIN: "/admin",
+  ADMIN_ARTICLES: "articles",
+  ADMIN_ANIMALS: "animals",
+  ADMIN_TESTIMONIES: "testimonies",
+  ADMIN_USERS: "users"
+}

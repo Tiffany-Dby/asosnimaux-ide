@@ -1,0 +1,57 @@
+@use "../../styles/mixins" as mxn;
+
+.articles {
+  @include mxn.flex("column", "nowrap");
+  gap: 2rem;
+
+  &__page {
+    padding-top: var(--padding-l);
+    padding-bottom: var(--padding-xl);
+  }
+
+  &__page,
+  &-overview {
+    &:has(.article:hover) .article:not(:hover) img {
+      filter: grayscale(100%) brightness(80%);
+    }
+  }
+
+  .loading {
+    margin-top: 4rem;
+  }
+
+  &__header {
+    @include mxn.container;
+  }
+
+  &__wrapper {
+    @include mxn.flex;
+    gap: 3rem;
+
+    @media screen and (min-width: 767px) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &>a {
+      width: 100%;
+      text-decoration: none;
+      color: var(--dark-brown);
+
+      @media screen and (min-width: 500px) {
+        &:nth-child(odd) {
+          grid-column: 1/4;
+        }
+
+        &:nth-child(even) {
+          grid-column: 2/-1;
+          flex-direction: row-reverse;
+        }
+
+        &:nth-child(even) article {
+          flex-direction: row-reverse
+        }
+      }
+    }
+  }
+}

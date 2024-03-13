@@ -1,0 +1,73 @@
+@use "../../styles/mixins" as mxn;
+
+.footer {
+  @include mxn.flex("column", "nowrap");
+  background-color: var(--dark-brown);
+  box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+
+  &>* {
+    @include mxn.container;
+  }
+
+  a {
+    color: var(--white);
+    transition: all .5s ease;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  &__img,
+  &__copyright {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__img {
+    a {
+      img {
+        object-fit: contain;
+        min-width: 180px;
+        max-width: 250px;
+      }
+    }
+  }
+
+  &__links {
+    @include mxn.flex("column", "nowrap");
+
+    @media screen and (min-width: 767px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1.9rem;
+    }
+
+    li {
+      padding-top: var(--padding-xs);
+    }
+
+    ul:nth-child(2) {
+      @include mxn.flex;
+      gap: 1rem;
+      min-width: 180px;
+      max-width: 250px;
+
+      a {
+        color: var(--accent);
+      }
+
+      &:has(li:hover) li:not(:hover) {
+        opacity: .65;
+        transform: scale(.80);
+      }
+    }
+  }
+
+  &__copyright {
+    a {
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use "../../styles/mixins" as mxn;
+
+// Style for SignIn and SignUp components
+
+.sign {
+  @include mxn.container($padding: var(--padding-l) var(--padding-s) var(--padding-xl));
+
+  form {
+    @include mxn.container("400px");
+    @include mxn.flex("column", "nowrap");
+    gap: 3.5rem;
+  }
+
+  .btn-wrapper {
+    @include mxn.btnStylish;
+    margin: 0 auto;
+  }
+
+  .redirect {
+    margin-top: 2rem;
+    text-align: center;
+
+    a {
+      color: var(--dark-brown);
+      transition: color .3s ease;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+}

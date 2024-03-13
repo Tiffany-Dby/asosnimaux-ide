@@ -1,0 +1,35 @@
+.admin {
+  &__all-articles {
+    &__wrapper {
+      @media screen and (min-width:500px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media screen and (min-width:900px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  &__article {
+    &__content {
+      display: grid;
+      text-align: center;
+    }
+
+    &__title {
+      padding: var(--padding-xxs);
+    }
+
+    &__date {
+      grid-area: 1/1;
+
+      p {
+        padding: var(--padding-xs);
+        background-color: var(--dark-brown);
+        color: var(--white);
+        border-radius: var(--radius-s) var(--radius-s) 0 0;
+      }
+    }
+  }
+}

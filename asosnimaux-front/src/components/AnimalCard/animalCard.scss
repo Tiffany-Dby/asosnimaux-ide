@@ -1,0 +1,112 @@
+@use "../../styles/mixins" as mxn;
+
+.animal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr) 0.65fr;
+  column-gap: 1.2rem;
+  background-color: var(--white);
+  width: 100%;
+  box-shadow: var(--box-shadow-2-2-5);
+  border-radius: var(--radius-xs);
+  padding: var(--padding-s) 0;
+  cursor: pointer;
+  transition: all .5s;
+
+  @media (hover: hover) {
+
+    &:hover img,
+    &:hover &__follow-icon,
+    &:has(.status--adopted):hover img {
+      transform: scale(1.075);
+      filter: grayscale(0%);
+    }
+  }
+
+  &__status {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    align-self: center;
+    z-index: 1;
+    text-align: center;
+    font-weight: var(--fw-semi-bold);
+    font-size: var(--font-size-m);
+  }
+
+  &:has(.status--adopted) img {
+    filter: grayscale(100%);
+  }
+
+  &__follow-icon {
+    grid-column: 4/-1;
+    grid-row: 1/2;
+    align-self: center;
+    z-index: 1;
+
+    &.heart {
+      height: 4.8rem;
+      width: 4.8rem;
+      background-color: var(--white);
+      transition: transform .5s ease;
+
+      @media (hover: hover) {
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+
+
+      &:active {
+        transform: scale(2);
+      }
+    }
+  }
+
+  &__redirect {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    text-decoration: none;
+    color: var(--dark-brown);
+    transition: color .3s ease;
+  }
+
+  &__sex {
+    transition: color .3s ease;
+  }
+
+  &__img {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+
+    width: calc(100% - var(--padding-xs) * 2);
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    img {
+      border-radius: var(--radius-xs);
+      transition: all .5s;
+    }
+  }
+
+  &__infos {
+    @include mxn.flex;
+    align-items: center;
+    gap: 2rem;
+    grid-column: 2/4;
+    justify-self: center;
+    align-self: center;
+
+    padding-top: var(--padding-s);
+  }
+
+  &__name {
+    font-size: var(--font-size-xl);
+  }
+
+  &__sex {
+    max-width: var(--font-size-xxl);
+  }
+}

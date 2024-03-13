@@ -1,0 +1,88 @@
+@use "../../styles/mixins" as mxn;
+
+.animals {
+  @include mxn.container;
+  @include mxn.flex("column", "nowrap");
+  gap: 2rem;
+
+  &__page {
+    padding-top: var(--padding-l);
+    padding-bottom: var(--padding-xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  &__content {
+    @include mxn.flex("column", "nowrap");
+    gap: 1rem;
+    padding-bottom: var(--padding-s);
+    align-items: end;
+
+    @media screen and (min-width: 600px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .loading {
+    margin: 2rem auto;
+  }
+
+  .text-error {
+    margin: 0 auto;
+  }
+
+  .btn-wrapper {
+    @include mxn.btnSimple;
+    display: grid;
+    align-self: end;
+    position: sticky;
+    top: 100px;
+    z-index: 2;
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+      font-size: var(--font-size-n);
+      padding: var(--padding-xs);
+      border-radius: var(--radius-m);
+      box-shadow: 2px 2px 5px 0px #333333;
+
+      &:hover {
+        opacity: 1;
+        background-color: var(--dark-brown);
+      }
+
+      .manage-icons {
+        transform: rotate(-90deg);
+        transition: all .5s ease;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    @include mxn.container($padding: 0);
+    gap: 3rem;
+
+    @media screen and (min-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (hover: hover) {
+
+      &:has(.animal:hover) .animal:not(:hover) img {
+        filter: grayscale(100%) brightness(70%);
+      }
+    }
+  }
+}

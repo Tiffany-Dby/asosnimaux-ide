@@ -1,0 +1,41 @@
+@use "../../styles/mixins" as mxn;
+
+.testimonies {
+  @include mxn.container;
+  @include mxn.flex("column", "nowrap");
+  gap: 2rem;
+
+
+  &__page {
+    padding-top: var(--padding-l);
+    padding-bottom: var(--padding-xl);
+  }
+
+  &__wrapper {
+
+    @media screen and (min-width: 767px) {
+      column-count: 2;
+      column-width: 50%;
+      column-gap: 3rem;
+    }
+
+    li {
+      margin-bottom: 3rem;
+    }
+
+    .testimony {
+      width: 100%;
+
+      @media screen and (min-width: 767px) {
+        break-inside: avoid-column;
+      }
+    }
+  }
+
+  .btn-wrapper {
+    @include mxn.btnSimple;
+    display: grid;
+    align-self: end;
+    padding-right: var(--padding-xxs);
+  }
+}

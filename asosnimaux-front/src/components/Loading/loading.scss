@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as mxn;
+
+.loading {
+  @include mxn.flex("column", "nowrap");
+  align-items: center;
+  gap: .5rem;
+
+  &__text {
+    text-align: center;
+  }
+
+  &__paws {
+    @include mxn.loadingPaws;
+  }
+
+  &__spin {
+    @include mxn.loadingSpin;
+  }
+}

@@ -1,0 +1,52 @@
+.map {
+  &__wrapper {
+    padding: var(--padding-s);
+  }
+
+  .informations__article__title {
+    background-color: var(--primary);
+  }
+
+  &__layer {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 300px;
+    border-radius: var(--radius-s);
+  }
+
+  /* Override some of the existing css (mostly for more color contrast -> accessibility) */
+  .leaflet {
+
+    &-pane,
+    &-bottom {
+      z-index: 1;
+    }
+
+    &-popup-content {
+      width: auto;
+
+      &-wrapper {
+        color: var(--dark-brown);
+      }
+    }
+
+    &-container {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-size: var(--font-size-xs);
+
+      a.leaflet-popup-close-button {
+        color: var(--dark-brown);
+      }
+
+      a,
+      .leaflet-control-attribution {
+        font-weight: 500;
+      }
+
+      .leaflet-control-attribution {
+        color: var(--dark-brown);
+        background-color: rgba(253, 253, 253, 0.95);
+      }
+    }
+  }
+}

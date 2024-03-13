@@ -1,0 +1,89 @@
+@use "../../styles/mixins" as mxn;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+
+  &__wrapper {
+    @include mxn.flex;
+    @include mxn.container;
+    justify-content: space-between;
+  }
+
+  &__icons {
+    @include mxn.flex("row", "nowrap");
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (min-width: 900px) {
+      align-items: end;
+    }
+  }
+
+  &__background {
+    transition: background-color .3s ease;
+    background-color: transparent;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .shadow {
+    box-shadow: 0px .5px 5px 0px rgba(0, 0, 0, 0.25);
+    background-color: var(--secondary-25);
+  }
+
+  .icon__wrapper {
+    @include mxn.flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+
+    .icon.avatar {
+      background-color: var(--primary);
+    }
+
+    a {
+      @include mxn.flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__icons {
+    gap: 1rem;
+
+    a .icon:not(.heart) {
+      background-color: var(--accent);
+      border-radius: 50%;
+    }
+
+    .heart {
+      fill: var(--accent);
+    }
+
+    .icon:hover {
+      transform: scale(1.1);
+    }
+
+    @media screen and (min-width: 767px) {
+      @include mxn.flex("row-reverse", "nowrap");
+    }
+  }
+
+  &__img {
+    display: flex;
+    max-width: 40px;
+
+    @media screen and (min-width: 900px) {
+      max-width: 160px;
+    }
+
+    img {
+      object-fit: contain;
+    }
+  }
+}

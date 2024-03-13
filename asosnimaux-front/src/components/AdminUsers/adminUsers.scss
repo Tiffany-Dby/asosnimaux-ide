@@ -1,0 +1,57 @@
+.admin {
+  &__all-users {
+    &__wrapper {
+      @media screen and (min-width:530px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media screen and (min-width:900px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  &__user {
+    &__content {
+      display: grid;
+      align-items: center;
+    }
+
+    &__username {
+      grid-column: 1/1;
+      grid-row: 2/2;
+      padding: var(--padding-xs);
+      border-right: 1px solid var(--light-grey);
+      font-size: var(--font-size-n);
+
+      &-label {
+        grid-column: 1/1;
+        grid-row: 1/1;
+        color: var(--white);
+        border-radius: var(--radius-s) 0 0 0;
+        background-color: var(--dark-brown);
+        padding: var(--padding-xs);
+        border-right: 1px solid var(--light-grey);
+      }
+    }
+
+    &__role {
+      padding: var(--padding-xs);
+      grid-column: 2/2;
+      font-size: var(--font-size-s);
+
+      &-label {
+        grid-column: 2/2;
+        background-color: var(--dark-brown);
+        color: var(--white);
+        padding: var(--padding-xs);
+        border-top-right-radius: var(--radius-s);
+      }
+    }
+
+    .icons-wrapper {
+      border-top: 1px solid var(--light-grey);
+      border-radius: 0 0 var(--radius-s) var(--radius-s);
+    }
+  }
+}

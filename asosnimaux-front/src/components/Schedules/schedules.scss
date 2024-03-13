@@ -1,0 +1,40 @@
+@use "../../styles/mixins" as mxn;
+
+.schedules {
+  .informations__article__title {
+    background-color: var(--secondary125);
+    color: var(--dark-brown);
+  }
+
+  table {
+    margin: 1.5rem auto 2.5rem;
+    border-collapse: collapse;
+
+    @media screen and (min-width:550px) {
+      margin: 0 auto 3rem;
+    }
+
+    @media screen and (min-width:1024px) {
+      margin: 1.5rem auto 2.5rem;
+    }
+
+    th {
+      width: 50%;
+      text-align: left;
+
+      &:nth-child(2) {
+        text-align: right;
+      }
+    }
+
+    td {
+      border-bottom: solid .1rem var(--accent);
+      padding-top: var(--padding-xs);
+
+      &:nth-child(even) {
+        text-align: right;
+        padding-left: var(--padding-l);
+      }
+    }
+  }
+}

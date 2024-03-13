@@ -1,0 +1,13 @@
+@use "../../styles/mixins" as mxn;
+
+.title-wrapper {
+  @include mxn.title;
+
+  h1 {
+    font-size: var(--font-size-xxl);
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+}

@@ -1,0 +1,16 @@
+@use "../../styles/mixins" as mxn;
+
+.input__help {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  font-size: var(--font-label);
+  min-width: 50%;
+
+  &__wrapper {
+    @media screen and (min-width: 400px) {}
+
+    @include mxn.flex;
+    justify-content: space-between;
+  }
+}
